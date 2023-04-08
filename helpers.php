@@ -1,24 +1,12 @@
 <?php 
 
-function hi(): string
-{
-    $hora = date('H');
-    
-    if($hora>= 0 && $hora <= 5) {
-        $saudacao = 'boa madrugada';     
-    }
-    elseif ($hora >= 6 && $hora < 12) {
-        $saudacao = 'Boa manha';
-    }
-    elseif ($hora >= 13 && $hora < 18) {
-        $saudacao = 'Boa tarde';
-    }
-    else {
-        $saudacao = 'Boa noite';
-    }
-    
-    return $saudacao;
-}
+/**
+ * Resume um texto tirando as tags 
+ * @param string $texto texto que será modificado
+ * @param int $limit quantidade de caracteres
+ * @param string $continue opcional - o que deve ser exibido no final do resumo
+ * @return string texto resumido e sem tags
+ */
 
 function resumeText(string $text, int $limit, string $continue = '...'): string
 {
