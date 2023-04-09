@@ -1,4 +1,48 @@
 <?php
+/**
+ * Count the time that passed
+ *
+ * @param string $data current date
+ * @return string $time time that passed
+ */
+function timerCounter(string $data): string
+{
+    $now = strtotime (date('Y-m-d H:i:s'));
+    $time = strtotime($data);
+    $diff = $now - $time;
+    
+    $segs = $diff;
+    $min = round($diff / 60);
+    $hours = round($min / 60);
+    $days = round($hours / 24);
+    $week = round($days / 7);
+    $month = round($week / 4);
+    $years = round($month / 12);
+
+    if($segs <= 60){
+        return 'now';
+    }
+    elseif($min <= 60){
+        return $min == 1 ? '1 minute ago' :  $min. ' minutes ago';
+    }
+    elseif($hours <= 24){
+        return $hours == 1 ? '1 hour ago' : $hours. ' hours ago'; 
+    }
+    elseif($days <= 7){
+        return $days == 1 ? '1 day ago' : $days. ' days ago';
+    }
+    elseif($week <= 4){
+        return $week == 1 ? '1 week ago' : $week. ' weeks ago';
+    }
+    elseif($month <= 12){
+        return $month == 1 ? '1 month ago' : $month. ' months ago';
+    }
+    else{
+        return $years == 1 ? '1 year ago' : $years. ' years ago';
+    }
+}
+
+    
 
 /**
  * Turns the value into R$
