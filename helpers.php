@@ -1,11 +1,23 @@
 <?php
 /**
+ * Validate the email
+ *
+ * @param string $email Email to be validated
+ * @return boolean
+ */
+function emailValid(string $email) : bool
+{
+    return filter_var($email, FILTER_VALIDATE_EMAIL);
+}
+
+
+/**
  * Count the time that passed
  *
  * @param string $data current date
  * @return string $time time that passed
  */
-function timerCounter(string $data): string
+function timeCount(string $data): string
 {
     $now = strtotime (date('Y-m-d H:i:s'));
     $time = strtotime($data);
