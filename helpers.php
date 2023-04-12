@@ -1,4 +1,45 @@
 <?php
+
+function cpfValidate(string $cpf): bool
+{
+    $cpf = clearNumber($cpf);
+    if(mb_strlen($cpf) != 11 || preg_match('/(\d)\1{10}/', $cpf))
+    {
+        return false;
+    }
+    
+    for ($t = 9; $t < 11; $t++){
+        for($d = 0, $c = 0; $c < $t; $c ++){
+            $d += $cpf[$c] * (($t + 1) - $c);
+        }  
+        $d = ((10 * $d) % 11) % 10;
+        if($cpf[$c] != $d){
+            return false;
+        }  
+    }    
+    
+    return true;
+}
+
+function clearNumber(string $numero): string
+{
+    return preg_replace('/[^0-9]/', '', $numero);
+}
+
+function oi(): string
+{
+    $hora = date('H');
+    
+    $saudacao = match ( true ){
+        $hora >= 0 && $hora <= 5  => 'Boa madrugada',
+        $hora >= 6 && $hora <= 12 => 'Bom dia',
+        $hora >= 13 && $hora <= 18 => 'Boa tarde',
+        $hora >= 19 && $hora <= 23 => 'Boa noite'
+    };
+
+    return $saudacao;
+}
+
 /**
  * Shape the url according to the environment you are in
  *
@@ -25,6 +66,7 @@ function url(string $url): string
  *
  * @return boolean
  */
+
 function localhost(): bool
 {
     $servidor = $_SERVER['SERVER_NAME'];
