@@ -4,10 +4,31 @@ class Mensagem
 {
     private $texto;
     private $css;
-
-    public function render(): string
+    
+    public function success(string $msg): string
     {
-       return $this->texto = $this ->filter('teste');
+        $this->css = 'alert alert-success';
+        $this->texto = $this->filter($msg);
+        return $this->render($this->css, $this->texto);        
+    }
+    
+    public function error(string $msg): string
+    {
+        $this->css = 'alert alert-danger';
+        $this->texto = $this->filter($msg);
+        return $this->render($this->css, $this->texto);        
+    }
+    
+    public function warning(string $msg): string
+    {
+        $this->css = 'alert alert-warning';
+        $this->texto = $this->filter($msg);
+        return $this->render($this->css, $this->texto);        
+    }
+
+    private function render(string $css, string $texto): string
+    {
+       return "<div class='{$css}'> {$texto}</div>";
     }
 
     private function filter(string $msg): string
