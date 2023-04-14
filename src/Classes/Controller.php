@@ -6,6 +6,6 @@ class Controller
 {
     public function __construct()
     {
-        echo 'Sexo';
+        echo 'teste';
     }
 }
