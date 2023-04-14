@@ -3,18 +3,12 @@
 
 <?php
 // index do sistema gerencia tudo 
-require_once 'sistema/configuracao.php';
-include_once 'helpers.php';
-include './sistema/Class/Mensagem.php';
+require 'vendor/autoload.php';
 
+use src\Classes\Mensagem;
+use src\Classes\Helpers;
+use src\Classes\Controller;
 
-
-$msg = new Mensagem();
-echo $msg->success('aaaaa');
-echo '<hr>';
-echo $msg->error('HAHAHAHA');
-echo '<hr>';
-echo $msg->warning('TTTTTT');
+$controle = new Controller;
 
 echo '<hr>';
-var_dump($msg);

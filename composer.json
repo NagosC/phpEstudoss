@@ -1,0 +1,20 @@
+{
+    "name": "leand/estudo",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "src\\": "src/"
+        },
+        "files": [
+            "src/configuracao.php"
+        ]
+    },
+    "authors": [
+        {
+            "name": "NagosC",
+            "email": "121381818+NagosC@users.noreply.github.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {}
+}

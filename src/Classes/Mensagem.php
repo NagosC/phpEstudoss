@@ -1,10 +1,13 @@
 <?php
 
+namespace src\Classes;
+
 class Mensagem
 {
     private $texto;
     private $css;
-    
+
+
     public function success(string $msg): string
     {
         $this->css = 'alert alert-success';
