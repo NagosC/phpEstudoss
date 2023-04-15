@@ -4,11 +4,8 @@
 <?php
 // index do sistema gerencia tudo 
 require 'vendor/autoload.php';
+require 'src/routes/homeRoutes.php';
 
-use src\Classes\Mensagem;
-use src\Classes\Helpers;
-use src\Classes\Controller;
-
-$controle = new Controller;
+use Cocur\Slugify\Slugify;
 
 echo '<hr>';
