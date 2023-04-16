@@ -2,10 +2,19 @@
 
 namespace src\controllers;
 
-class HomeController
+use src\controllers\Controller;
+
+class HomeController extends Controller
 {
-    public function index(): void
+    public function __construct()
     {
-        echo 'página index';
+        parent::__construct('src/views/home');
+    }
+
+    public function index():void
+    {
+        echo $this->template->rend('home.html', [
+            'titulo' => 'teste'
+        ]); 
     }
 }

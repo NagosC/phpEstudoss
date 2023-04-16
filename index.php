@@ -4,8 +4,5 @@
 <?php
 // index do sistema gerencia tudo 
 require 'vendor/autoload.php';
-require 'src/routes/homeRoutes.php';
+require 'src/routes/index.php';
 
-use Cocur\Slugify\Slugify;
-
-echo '<hr>';
