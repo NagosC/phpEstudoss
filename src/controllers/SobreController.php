@@ -6,7 +6,7 @@ class SobreController extends Controller
 {
     public function __construct()
     {
-        parent::__construct('src/views/sobre');
+        parent::__construct('src/views/html');
     }
 
     public function index():void

@@ -8,13 +8,14 @@ class HomeController extends Controller
 {
     public function __construct()
     {
-        parent::__construct('src/views/home');
+        parent::__construct('src/views/html/');
     }
 
-    public function index():void
+    public function index(): void
     {
         echo $this->template->rend('home.html', [
-            'titulo' => 'teste'
-        ]); 
+            'titulo' => 'HAHAHAHHA'
+        ]);
     }
+
 }

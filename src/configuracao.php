@@ -3,3 +3,5 @@
 date_default_timezone_set('America/Sao_Paulo');
 
 define('URL_SITE', 'games/');
+define('URL_DESENVOLVIMENTO', 'http://localhost');
+define('URL_PRODUCAO', 'http://localhost/teste/');

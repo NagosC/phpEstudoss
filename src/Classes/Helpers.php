@@ -51,7 +51,7 @@ class Helpers
      * @return string
      */
 
-    public static function url(string $url): string
+    public static function url(string $url = null): string
     {
         $servidor = $_SERVER['SERVER_NAME'];
 
