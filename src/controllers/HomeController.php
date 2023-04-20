@@ -14,8 +14,16 @@ class HomeController extends Controller
     public function index(): void
     {
         echo $this->template->rend('home.html', [
-            'titulo' => 'HAHAHAHHA'
+            'titulo' => 'Home'
         ]);
     }
+
+    public function error(): void
+    {
+        echo $this->template->rend('404.html', [
+            'titulo' => 'Página não encontrada'
+        ]);
+    }
+
 
 }

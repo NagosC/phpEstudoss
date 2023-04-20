@@ -5,4 +5,3 @@
 // index do sistema gerencia tudo 
 require 'vendor/autoload.php';
 require 'src/routes/index.php';
-

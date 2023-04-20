@@ -12,7 +12,7 @@ class SobreController extends Controller
     public function index():void
     {
         echo $this->template->rend('sobre.html', [
-            'titulo' => 'Olá'
+            'titulo' => 'Sobre nós'
         ]);
     }
 }

@@ -1,13 +1,29 @@
 <?php
 use Pecee\SimpleRouter\SimpleRouter;
 
-SimpleRouter::setDefaultNamespace('src\controllers');
+use src\Classes\Helpers;
 
-//home
-SimpleRouter::get('home/', 'HomeController@index');
+try{
+
+    SimpleRouter::setDefaultNamespace('src\controllers');
+
+    //home
+    SimpleRouter::get('/', 'HomeController@index');
 
 
-//sobre 
-SimpleRouter::get('sobre/', 'SobreController@index');
+    //sobre 
+    SimpleRouter::get('sobre/', 'SobreController@index');
 
-SimpleRouter::start();
+    //error 
+    SimpleRouter::get('error/', 'HomeController@error');
+
+    SimpleRouter::start();
+    
+} catch(\Pecee\SimpleRouter\Exceptions\NotFoundHttpException $e) {
+    if(Helpers::localhost()) {
+        echo $e;
+    }
+    else {
+        Helpers::redirect('error');
+    }
+}

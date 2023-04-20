@@ -2,14 +2,27 @@
 
 namespace src\Classes;
 
+use Exception;
+
 class Helpers
 {
+    public static function redirect (string $url = null):void
+    {
+        header('http/1.1 302 Found');
+
+        $local = ($url ? self::url($url) : self::url());
+        
+        header("Location: {$local}");
+        
+        exit();
+    }
+        
     public static function cpfValidate(string $cpf): bool
     {
         $cpf = self::clearNumber($cpf);
         if(mb_strlen($cpf) != 11 || preg_match('/(\d)\1{10}/', $cpf))
         {
-            return false;
+            throw new Exception('O CPF precisa ter 11 digitios');
         }
         
         for ($t = 9; $t < 11; $t++){
@@ -18,7 +31,7 @@ class Helpers
             }  
             $d = ((10 * $d) % 11) % 10;
             if($cpf[$c] != $d){
-                return false;
+                throw new Exception('CPF inválido');
             }  
         }    
         
@@ -61,7 +74,7 @@ class Helpers
             return $ambiente.$url;
         }
 
-        return $ambiente.'/'.$url;
+        return $ambiente.$url;
     }
 
     /**
