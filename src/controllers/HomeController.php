@@ -3,6 +3,7 @@
 namespace src\controllers;
 
 use src\controllers\Controller;
+use src\models\PostModels;
 
 class HomeController extends Controller
 {
@@ -13,8 +14,10 @@ class HomeController extends Controller
 
     public function index(): void
     {
+        $post = (new PostModels)->readAll();
+
         echo $this->template->rend('home.html', [
-            'titulo' => 'Home'
+            'posts'=>$post
         ]);
     }
 

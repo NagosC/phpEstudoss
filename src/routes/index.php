@@ -17,6 +17,12 @@ try{
     //error 
     SimpleRouter::get('error/', 'HomeController@error');
 
+    //post 
+    SimpleRouter::get('post/{id}','PostController@index');
+
+
+
+    
     SimpleRouter::start();
     
 } catch(\Pecee\SimpleRouter\Exceptions\NotFoundHttpException $e) {
